@@ -28,9 +28,9 @@ class UrlForm extends Component {
 
   createObject = () => {
   const newEntry = {
-      id:Date.now(),
+      id: this.props.urls.length + 1,
       long_url: this.state.urlToShorten,
-      short_url:`http://localhost:3001/useshorturl/${Date.now()}`,
+      short_url:`http://localhost:3001/useshorturl/${this.props.urls.length + 1}`,
       title: this.state.title
     }
     console.log(newEntry)
