@@ -15,11 +15,15 @@ const App = () => {
     .then(data => setUrls(data.urls))
   }, [])
 
+  // const addNewUrl = (entry) => {
+  //   setUrls({urls: [...urls, entry]})
+  // }
+
   return (
     <main className="App">
       <header>
         <h1>URL Shortener</h1>
-        <UrlForm />
+        <UrlForm setUrls={setUrls} urls={urls} />
       </header>
 
       <UrlContainer urls={urls}/>

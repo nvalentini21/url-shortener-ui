@@ -1,5 +1,7 @@
 .url-card {
-  /* width: 50px; */
-  width: 200px;
+  display: flex;
+  flex-direction: column;
   border: solid;
+  flex-wrap: wrap;
+  margin: 10px;
 }
