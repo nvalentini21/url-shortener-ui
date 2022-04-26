@@ -23,7 +23,6 @@ describe('URL Shortener Dashboard', () => {
       .get('.short-url-title').contains('Short Url:')
       .get('.url-title').eq(0).contains('Awesome photo')
       .get('.short-url').eq(0).contains('http://localhost:3001/useshorturl/1')
-      .get('.long-url').eq(0).contains('Long Url: https://images.unsplash.com/photo-1531898418865-480b7090470f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')
   });
 
   it('Should be able to visit the page and view a form and proper inputs', () => {
@@ -48,5 +47,8 @@ describe('URL Shortener Dashboard', () => {
       .get('input').eq(1).type('url entered here').should('have.value', 'url entered here')
       .get('.submit-btn').click()
       .get('.url-card').last().should('be.visible')
+      .get('.short-url-title').last().contains('Short Url:')
+      .get('.url-title').last().contains('Test3')
+      .get('.short-url').last().contains('http://localhost:3001/useshorturl/2')
   });
   });
