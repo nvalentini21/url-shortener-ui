@@ -5,9 +5,10 @@ const UrlCard = ({id, long_url, short_url, title}) => {
 
   return (
     <div className="url-card">
-      <h3>{title}</h3>
-      <a href={short_url} target="blank">{short_url}</a>
-      <p>Long Url: {long_url}</p>
+      <h3 className='url-title'>{title}</h3>
+      <p classname='short-url-title'>Short Url:</p>
+      <a className='short-url' href={short_url} target="blank">{short_url}</a>
+      <p className='long-url'>Long Url: {long_url}</p>
     </div>
   )
 }
