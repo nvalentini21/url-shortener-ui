@@ -1,7 +1,6 @@
-// import React, { Component } from 'react';
 import React, { useState, useEffect } from 'react'
 import './App.css';
-import { getUrls, postUrl } from '../../apiCalls';
+import { getUrls } from '../../apiCalls';
 import UrlContainer from '../UrlContainer/UrlContainer';
 import UrlForm from '../UrlForm/UrlForm';
 
@@ -9,57 +8,27 @@ import UrlForm from '../UrlForm/UrlForm';
 
 const App = () => {
   const [urls, setUrls] = useState([])
+  const [error, setError] = useState()
 
   useEffect(() => {
     getUrls()
     .then(data => setUrls(data.urls))
+    .catch(error => setError(error.message))
   }, [])
-
-  // const addNewUrl = (entry) => {
-  //   setUrls({urls: [...urls, entry]})
-  // }
 
   return (
     <main className="App">
-      <header>
-        <h1>URL Shortener</h1>
-        <UrlForm setUrls={setUrls} urls={urls} />
-      </header>
-
-      <UrlContainer urls={urls}/>
+      {error ? <div>Whoops, the server is down. Please refresh to try again.</div> :
+      <div>
+        <header>
+          <h1>URL Shortener</h1>
+          <UrlForm setUrls={setUrls} urls={urls} />
+        </header>
+        <UrlContainer urls={urls}/>
+      </div>
+    }
     </main>
   )
 }
 
-
-
-// export class App extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       urls: []
-//     }
-//   }
-//
-//   componentDidMount() {
-//     postUrl()
-//   }
-//
-  // render() {
-  //   return (
-  //     <main className="App">
-  //       <header>
-  //         <h1>URL Shortener</h1>
-  //         <UrlForm />
-  //       </header>
-  //
-  //       <UrlContainer urls={this.state.urls}/>
-  //     </main>
-  //   );
-  // }
-// }
-
 export default App;
-
-
-//this is my second test commit to see if my push to main is working on my forked copy.
