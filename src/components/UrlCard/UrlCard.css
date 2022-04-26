@@ -1,7 +1,11 @@
 .url-card {
   display: flex;
   flex-direction: column;
-  border: solid;
+  width: 300px;
+  height: 200px;
+  background-color: #CFDFE6;
+  border-radius: 10px;
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
   flex-wrap: wrap;
   margin: 10px;
 }
