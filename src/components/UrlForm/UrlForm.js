@@ -17,9 +17,8 @@ class UrlForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const newEntry = this.createObject();
-    console.log(this.props.urls)
     this.props.setUrls([...this.props.urls, newEntry])
-    // postUrl(newEntry)
+    postUrl(newEntry)
     this.clearInputs();
   }
 
